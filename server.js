@@ -1,6 +1,7 @@
 const express = require('express')
 const next = require('next')
 const bodyParser = require('body-parser')
+const mailer = require('./mailer')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -18,7 +19,13 @@ app.prepare().then(() => {
   server.post('/api/contact', (req, res) => {
     const { email, name } = req.body
     console.log(req.body)
-    res.send('success')
+    mailer.send(email, name, "TEST").then(() => {
+      console.log('success')
+      res.send('success')
+    }).catch((error) => {
+      console.log('failed', error)
+      res.send('badddd')
+    })
   })
 
   server.listen(3000, (err) => {
