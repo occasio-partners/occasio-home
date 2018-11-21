@@ -34,7 +34,7 @@ const Input = createFactory(({ name, value, valid, validateField, updateField, .
       'has-value': !!value,
       'no-label': !props.label
     })}>
-      <input {...attrs}/>
+      <input {...attrs} />
       {props.label && <label>{props.label}{required ? '*' : ''}</label>}
       <span />
     </div>

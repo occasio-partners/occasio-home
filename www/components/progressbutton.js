@@ -1,5 +1,4 @@
 const React = require('react')
-const cx = require('classnames')
 
 module.exports = class ProgressButton extends React.Component {
   constructor (props) {
@@ -32,7 +31,7 @@ module.exports = class ProgressButton extends React.Component {
     } = this.props
 
     return (
-      <button {...props} ref={c => this.button = c} className={cx('progress-button', className)}>
+      <button {...props} ref={c => this.button = c} className={`progress-button ${className}`}>
         {isDone ? (
           <div className='f aic jcc'>
             {isDoneText && <span className='mr05'>{isDoneText}</span>}

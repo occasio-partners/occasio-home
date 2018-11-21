@@ -1,20 +1,11 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import StyledLink from './styledLink.js'
-import lifecycle from 'react-pure-lifecycle';
-import { Timeline } from 'react-twitter-widgets';
 
-const methods = {
-  componentDidMount(props) {
-    console.log('I mounted! Here are my props: ', props);
-  }
-};
-// background-image: url(/static/sf.jpg);
-// background-size: cover;
-// font: 11px menlo;
-// color: #fff;
+import bgImg from 'assets/sf.jpg'
+import logoImg from 'assets/logo.png'
 
-const render = ({ children, path, title = 'This is the default title' }) => (
+export default ({ children, path, title = 'This is the default title' }) => (
   <div>
     <style>{`
       body {
@@ -38,10 +29,10 @@ const render = ({ children, path, title = 'This is the default title' }) => (
         bottom: 0px;
         left: 0px;
         z-index: 99;
-      
+
         /* Pull the background 70px higher to the same place as #bg's */
         background-position: center -70px;
-      
+
         -webkit-filter: blur(10px);
         filter: url('/media/blur.svg#blur');
         filter: blur(10px);
@@ -77,7 +68,7 @@ const render = ({ children, path, title = 'This is the default title' }) => (
         top:10%;
         left:0%
       }
-     
+
       $blue-3: hsl(211, 57%, 25%);
       $blue-4: hsl(211, 39%, 44%);
       $blue-5: hsl(211, 51%, 65%);
@@ -167,7 +158,7 @@ const render = ({ children, path, title = 'This is the default title' }) => (
           opacity: 0;
           transform: translate(0, 15px);
         }
-        
+
         100% {
           opacity: 1;
           transform: translate(0, 0);
@@ -212,7 +203,7 @@ const render = ({ children, path, title = 'This is the default title' }) => (
         border: 1px groove #ffffff1a;
       }
       .no-effect {
-        background-image: url(/static/sf.jpg);
+        background-image: url(${bgImg});
         background-size: cover;
         position: absolute;
         width: 100%;
@@ -226,7 +217,7 @@ const render = ({ children, path, title = 'This is the default title' }) => (
     </Head>
     <header>
       <nav className="navbar1">
-        <img className="logo2" src="/static/logo.png" path={path}/>
+        <img className="logo2" src={logoImg} path={path}/>
       </nav>
       <nav className="navbar2">
         <StyledLink href="/" name="OUR FIRM" path={path} />
@@ -239,6 +230,4 @@ const render = ({ children, path, title = 'This is the default title' }) => (
     <footer>
     </footer>
   </div>
-);
-
-export default lifecycle(methods)(render);
+)
