@@ -1,0 +1,28 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# misc
+.DS_Store
+
+# Environment Variables
+.env*
+
+# npm
+npm-debug.log*
+
+# yarn
+yarn-debug.log*
+yarn-error.log*
+
+
+# Next.js build and export
+.next/
+out/
+
+# Edit config
+.vscode
