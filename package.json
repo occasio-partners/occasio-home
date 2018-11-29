@@ -1,6 +1,33 @@
 {
   "private": true,
+  "scripts": {
+    "test": "yarn test-api && yarn test-www",
+    "test-api": "cd api/ && yarn test",
+    "test-www": "cd www/ && yarn test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.js": [ "standard" ],
+      "api/**/*.js": [ "standard", "yarn test-api --bail --findRelatedTests" ],
+      "www/**/*.js": [ "standard", "yarn test-www --bail --findRelatedTests" ]
+    },
+    "ignore": ["**/node_modules/**"]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [ "React" ],
+    "ignore": [ "**/node_modules/**" ]
+  },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.0.5",
     "standard": "^12.0.1"
   }
 }
