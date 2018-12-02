@@ -7,7 +7,7 @@ export default class ProgressButton extends React.Component {
 
   componentDidMount () {
     this.setState({
-      buttonWidth: this.button.clientWidth + 5 + 'px'
+      buttonWidth: 5 + 'px'
     })
   }
 
