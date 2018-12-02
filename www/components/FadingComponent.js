@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 
 export default class FadingComponent extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       mounted: false
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     // trick to make the animation work is to call the set state next run
     setTimeout(() => {
-      this.setState({mounted: true})
+      this.setState({ mounted: true })
     }, 1)
   }
 
-  render() {
+  render () {
     return (
       <div className={'animated ' + (this.state.mounted ? 'mounted' : '')}>
         {this.props.children}

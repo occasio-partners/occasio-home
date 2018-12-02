@@ -1,17 +1,37 @@
-import Link from 'next/link'
 import Head from 'next/head'
-import StyledLink from './styledLink.js'
+import NavLink from 'components/NavLink.js'
 
 import bgImg from 'assets/sf.jpg'
 import logoImg from 'assets/logo.png'
 
-export default ({ children, path, title = 'This is the default title' }) => (
+export default ({ children, title = 'Occasio Partners' }) => (
   <div>
-    <style>{`
+    <Head>
+      <title>{title}</title>
+    </Head>
+    <header>
+      <nav className='navbar1'>
+        <img className='logo2' src={logoImg} />
+      </nav>
+      <nav className='navbar2'>
+        <NavLink href='/' name='OUR FIRM' />
+        <NavLink href='/about' name='INVESTOR RELATIONS' />
+        <NavLink href='/contact' name='MANAGEMENT' />
+        <NavLink href='/careers' name='CAREERS' />
+      </nav>
+    </header>
+    {children}
+    <footer />
+    <style jsx global>{`
       body {
         margin: 0;
         font: 11px menlo;
         color: #fff;
+        background: url(${bgImg}) no-repeat center center fixed;
+        background-size: cover;
+        position: absolute;
+        width: 100%;
+        height: 100%;
       }
       .box3-container {
         position: absolute;
@@ -202,32 +222,6 @@ export default ({ children, path, title = 'This is the default title' }) => (
         text-align: center;
         border: 1px groove #ffffff1a;
       }
-      .no-effect {
-        background-image: url(${bgImg});
-        background-size: cover;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
     `}</style>
-    <Head>
-      <title>{ title }</title>
-      <meta charSet='utf-8' />
-      <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-    </Head>
-    <header>
-      <nav className="navbar1">
-        <img className="logo2" src={logoImg} path={path}/>
-      </nav>
-      <nav className="navbar2">
-        <StyledLink href="/" name="OUR FIRM" path={path} />
-        <StyledLink href="/about" name="INVESTOR RELATIONS" path={path}/>
-        <StyledLink href="/contact" name="MANAGEMENT" path={path}/>
-        <StyledLink href="/about" name="CAREERS" path={path}/>
-      </nav>
-    </header>
-    { children }
-    <footer>
-    </footer>
   </div>
 )

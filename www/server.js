@@ -19,7 +19,7 @@ app.prepare().then(() => {
   server.post('/api/contact', (req, res) => {
     const { email, name } = req.body
     console.log(req.body)
-    mailer.send(email, name, "TEST").then(() => {
+    mailer.send(email, name, 'TEST').then(() => {
       console.log('success')
       res.send('success')
     }).catch((error) => {
