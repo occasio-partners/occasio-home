@@ -4,15 +4,18 @@
   "version": 2,
   "builds": [
     { "src": "static/**", "use": "@now/static" },
+    { "src": "api/contact/index.js", "use": "@now/node" },
     { "src": "www/package.json", "use": "@now/static-build" }
   ],
   "routes": [
     { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": "^/api/contact$", "dest": "/api/contact" },
     { "src": "^/(.*)", "dest": "/www/$1" }
   ],
   "env": {
     "ANALYTICS_TOKEN": "UA-129673840-1",
     "RECAPTCHA_SECRET_KEY": "@occasio_recaptcha_secret_key",
-    "RECAPTCHA_PUBLIC_KEY": "6Lcjbn0UAAAAADWs75986YTp7NKlJRCjCNQpY8Ws"
+    "RECAPTCHA_PUBLIC_KEY": "6Lcjbn0UAAAAADWs75986YTp7NKlJRCjCNQpY8Ws",
+    "SENDGRID_API_KEY": "@occasio_sendgrid_api_key"
   }
 }
