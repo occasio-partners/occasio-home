@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "dev": "cd www/ && yarn dev",
     "test": "yarn test-api && yarn test-www",
     "test-api": "cd api/ && yarn test",
     "test-www": "cd www/ && yarn test"
