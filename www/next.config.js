@@ -1,4 +1,3 @@
-const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
 const fs = require('fs')
 const nextOffline = require('next-offline')
 const path = require('path')
@@ -8,7 +7,7 @@ const copyFile = require('util').promisify(fs.copyFile)
 
 const rootAssetPath = 'rootAssets'
 
-const plugins = [[nextOffline, ['!', PHASE_DEVELOPMENT_SERVER]]]
+const plugins = [[nextOffline]]
 
 if (typeof process.env.BUNDLE_ANALYZE !== 'undefined') {
   plugins.push([require('@zeit/next-bundle-analyzer'), {
