@@ -11,5 +11,8 @@
     { "src": "^/(.*)", "dest": "/www/$1" }
   ],
   "env": {
+    "ANALYTICS_TOKEN": "UA-129673840-1",
+    "RECAPTCHA_SECRET_KEY": "@occasio_recaptcha_secret_key",
+    "RECAPTCHA_PUBLIC_KEY": "6Lcjbn0UAAAAADWs75986YTp7NKlJRCjCNQpY8Ws"
   }
 }
