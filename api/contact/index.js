@@ -28,3 +28,12 @@ export default (req, res) => {
     res.send('badddd')
   })
 }
+
+// Make sure we verify captcha before sending email:
+
+// fetch(`/api/captcha?response=${value}`)
+//   .then(res => {
+//     if (res.status === 200) {
+//       // Continue sending email...
+//     }
+//   })

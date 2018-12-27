@@ -1,28 +1,39 @@
 import FadingComponent from 'components/FadingComponent'
 import fetch from 'isomorphic-unfetch'
 import Form from 'components/forms/Form'
+import getConfig from 'next/config'
 import Input from 'components/forms/Input'
 import ProgressButton from 'components/ProgressButton'
 import React from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
+
+const { RECAPTCHA_PUBLIC_KEY } = getConfig().publicRuntimeConfig
 
 export default class Contact extends React.Component {
   state = {
     submitting: false,
-    submitted: false
+    submitted: false,
+    verified: false,
+    captchaResponse: null
   }
   submitForm (data) {
+    // Make sure we pass 'captchaResponse' to the contact endpoint
     fetch('/api/contact', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data) // Add captchaResponse
     }).then((res) => {
       if (res.status === 200) {
         this.setState({ submitted: true })
       }
     })
+  }
+  onChange (captchaResponse) {
+    this.setState({ verified: true, captchaResponse })
+    console.log('Captcha value:', captchaResponse)
   }
   render () {
     return (
@@ -46,6 +57,10 @@ export default class Contact extends React.Component {
                         <Input name='email' label='Email' required />
                       </div>
                     </div>
+                    <ReCAPTCHA
+                      sitekey={RECAPTCHA_PUBLIC_KEY}
+                      onChange={this.onChange}
+                    />
                     <ProgressButton
                       className='button green'
                       formNoValidate
