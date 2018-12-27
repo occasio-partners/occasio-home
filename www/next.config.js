@@ -22,7 +22,6 @@ module.exports = withPlugins(plugins,
     publicRuntimeConfig: {
       NODE_ENV: process.env.NODE_ENV,
       ANALYTICS_TOKEN: process.env.ANALYTICS_TOKEN,
-      RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
       RECAPTCHA_PUBLIC_KEY: process.env.RECAPTCHA_PUBLIC_KEY
     },
     webpack: config => {
