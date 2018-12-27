@@ -13,18 +13,17 @@ export default class Contact extends React.Component {
   state = {
     submitting: false,
     submitted: false,
-    verified: false,
+    captchaCompleted: false,
     captchaResponse: null
   }
   submitForm (data) {
-    // Make sure we pass 'captchaResponse' to the contact endpoint
-    fetch('/api/contact', {
+    fetch(`/api/contact?response=${this.state.captchaResponse}`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data) // Add captchaResponse
+      body: JSON.stringify(data)
     }).then((res) => {
       if (res.status === 200) {
         this.setState({ submitted: true })
@@ -32,7 +31,7 @@ export default class Contact extends React.Component {
     })
   }
   onChange (captchaResponse) {
-    this.setState({ verified: true, captchaResponse })
+    this.setState({ captchaCompleted: true, captchaResponse })
     console.log('Captcha value:', captchaResponse)
   }
   render () {
