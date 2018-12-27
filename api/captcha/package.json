@@ -1,0 +1,9 @@
+{
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "echo \"No tests specified!\""
+  },
+  "dependencies": {
+    "micro-captcha": "^3.0.0"
+  }
+}
