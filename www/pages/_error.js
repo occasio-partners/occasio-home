@@ -9,12 +9,11 @@ export default class Error extends React.Component {
   static isErrorPage = true
 
   render () {
-    return (
-      <h1>
-        {this.props.statusCode
-          ? `Custom Error Page: An error ${this.props.statusCode} occurred on server`
-          : 'Custom Error Page: An error occurred on client'}
-      </h1>
-    )
+    const { statusCode } = this.props
+    return <h1>
+      {statusCode
+        ? `Custom Error Page: An error ${statusCode} occurred on server`
+        : 'Custom Error Page: An error occurred on client'}
+    </h1>
   }
 }

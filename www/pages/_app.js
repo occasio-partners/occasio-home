@@ -11,20 +11,14 @@ export default class MyApp extends App {
 
   render () {
     const { Component, pageProps } = this.props
-    return (
-      Component.isErrorPage
-        ? (
-          <Container>
-            <Component {...pageProps} />
-          </Container>
-        )
-        : (
-          <Container>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </Container>
-        )
-    )
+    return Component.isErrorPage
+      ? <Container>
+        <Component {...pageProps} />
+      </Container>
+      : <Container>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Container>
   }
 }
