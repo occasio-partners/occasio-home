@@ -1,10 +1,9 @@
+import ContentBox from 'components/ContentBox'
 import FadingComponent from 'components/FadingComponent'
 
-export default () => <FadingComponent>
-  <div className='box3-container'>
-    <div className='box3-bg' />
-    <div className='box3'>
+export default () =>
+  <FadingComponent>
+    <ContentBox>
       <h2>Careers</h2>
-    </div>
-  </div>
-</FadingComponent>
+    </ContentBox>
+  </FadingComponent>

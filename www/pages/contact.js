@@ -1,3 +1,4 @@
+import ContentBox from 'components/ContentBox'
 import FadingComponent from 'components/FadingComponent'
 import fetch from 'isomorphic-unfetch'
 import Form from 'components/forms/Form'
@@ -37,37 +38,35 @@ export default class Contact extends React.Component {
   render () {
     return (
       <FadingComponent>
-        <div className='box3-container'>
-          <div className='box3'>
-            <Form>
-              {({ validateForm, getPayload }) => (
-                <form className='board-form' onSubmit={e => {
-                  e.preventDefault()
-                  validateForm() && this.submitForm(getPayload())
-                }}>
-                  <h2>Contact</h2>
-                  <div>
-                    <Input name='name' label='Name' required />
-                    <Input name='email' label='Email' required />
-                  </div>
-                  <ReCAPTCHA
-                    sitekey={RECAPTCHA_PUBLIC_KEY}
-                    onChange={this.onCaptchaCompleted}
-                  />
-                  <ProgressButton
-                    className='button green'
-                    formNoValidate
-                    inProgress={this.state.submitting}
-                    inProgressText='Submitting'
-                    isDone={this.state.submitted}
-                    isDoneText='Submitted'>
+        <ContentBox>
+          <Form>
+            {({ validateForm, getPayload }) => (
+              <form className='board-form' onSubmit={e => {
+                e.preventDefault()
+                validateForm() && this.submitForm(getPayload())
+              }}>
+                <h2>Contact</h2>
+                <div>
+                  <Input name='name' label='Name' required />
+                  <Input name='email' label='Email' required />
+                </div>
+                <ReCAPTCHA
+                  sitekey={RECAPTCHA_PUBLIC_KEY}
+                  onChange={this.onCaptchaCompleted}
+                />
+                <ProgressButton
+                  className='button green'
+                  formNoValidate
+                  inProgress={this.state.submitting}
+                  inProgressText='Submitting'
+                  isDone={this.state.submitted}
+                  isDoneText='Submitted'>
                       Submit Form
-                  </ProgressButton>
-                </form>
-              )}
-            </Form>
-          </div>
-        </div>
+                </ProgressButton>
+              </form>
+            )}
+          </Form>
+        </ContentBox>
       </FadingComponent>
     )
   }

@@ -32,54 +32,6 @@ export default ({ children, title = 'Occasio Partners' }) => <div>
       width: 100%;
       height: 100%;
     }
-    .box3-container {
-      position: absolute;
-      width: 50%;
-      height: 20%;
-      top: 30%;
-      left: 30%;
-      margin: -100px 0px 0px -100px;
-    }
-    .box3-bg {
-      /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      z-index: 99;
-
-      /* Pull the background 70px higher to the same place as #bg's */
-      background-position: center -70px;
-
-      -webkit-filter: blur(10px);
-      filter: url('/media/blur.svg#blur');
-      filter: blur(10px);
-    }
-    .box3 {
-      /* Put this on top of the blurred layer */
-      position: relative;
-      z-index: 100;
-      padding: 20px;
-      background: rgb(34,34,34); /* for IE */
-      background: rgba(34,34,34,0.75);
-    }
-    .box {
-      background-color: #ffffff;
-      border: 1px solid solid rgba(176, 226, 255, 0.3);
-      opacity: 1;
-      filter: alpha(opacity=60); /* For IE8 and earlier */
-      position: absolute;
-      width: 50%;
-      height: 20%;
-      z-index: 15;
-      top: 50%;
-      left: 40%;
-      margin: -100px 0px 0px -100px;
-      font: 14px menlo;
-      color: #303030;
-      transition: opacity 0.5s;
-    }
     .timeline {
       background: white;
       position:fixed;
