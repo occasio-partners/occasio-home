@@ -12,7 +12,7 @@
     { "src": "^/static/(.*)", "dest": "/static/$1" },
     { "src": "^/api/contact$", "dest": "/api/contact" },
     { "src": "^/api/captcha$", "dest": "/api/captcha" },
-    { "src": "^/(.*)", "dest": "/www/$1" }
+    { "src": "^/(.*)", "headers": { "cache-control": "s-maxage=31536000" }, "dest": "/www/$1" }
   ],
   "build": {
     "env": {
