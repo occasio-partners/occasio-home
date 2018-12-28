@@ -15,6 +15,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <meta name='description' content='Occasio Partners LLC' />
           <link rel='manifest' href='/manifest.json' />
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_TOKEN}`} />
           <script dangerouslySetInnerHTML={{ __html: `

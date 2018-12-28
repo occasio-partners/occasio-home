@@ -10,7 +10,7 @@ export default ({ children, title = 'Occasio Partners' }) => <div>
   </Head>
   <header>
     <nav className='navbar1'>
-      <img className='logo2' src={logoImg} />
+      <img className='logo2' src={logoImg} alt='Occasio Partners Logo' />
     </nav>
     <nav className='navbar2'>
       <NavLink href='/' name='OUR FIRM' />
