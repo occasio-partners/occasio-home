@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import { createFactory } from 'micro-form'
 
 const Input = createFactory(({ name, value, valid, validateField, updateField, ...props }) => {
@@ -29,11 +28,7 @@ const Input = createFactory(({ name, value, valid, validateField, updateField, .
   }
 
   return (
-    <div className={cx('input-wrapper', props.className, {
-      'has-error': !valid,
-      'has-value': !!value,
-      'no-label': !props.label
-    })}>
+    <div className={`input-wrapper ${props.className || ''} ${value ? 'has-value' : 'has-error'} ${props.label ? '' : 'no-label'}`}>
       <input {...attrs} />
       {props.label && <label>{props.label}{required ? '*' : ''}</label>}
       <span />

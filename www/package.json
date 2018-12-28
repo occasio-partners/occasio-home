@@ -11,7 +11,6 @@
     "test": "echo \"No tests specified!\""
   },
   "dependencies": {
-    "classnames": "^2.2.6",
     "isomorphic-unfetch": "^3.0.0",
     "micro-form": "^2.0.5",
     "next": "^7.0.2",
