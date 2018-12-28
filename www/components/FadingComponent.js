@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 
 export default class FadingComponent extends Component {
-  constructor () {
-    super()
-    this.state = {
-      mounted: false
-    }
+  state = {
+    mounted: false
   }
 
   componentDidMount () {
@@ -17,7 +14,7 @@ export default class FadingComponent extends Component {
 
   render () {
     return (
-      <div className={'animated ' + (this.state.mounted ? 'mounted' : '')}>
+      <div className={`animated ${this.state.mounted ? 'mounted' : ''}`}>
         {this.props.children}
         <style jsx>{`
           .animated {
