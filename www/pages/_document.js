@@ -17,6 +17,7 @@ export default class MyDocument extends Document {
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <meta name='description' content='Occasio Partners LLC' />
           <link rel='manifest' href='/manifest.json' />
+          <link rel='preconnect' href='https://www.google-analytics.com' />
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_TOKEN}`} />
           <script dangerouslySetInnerHTML={{ __html: `
               window.dataLayer = window.dataLayer || [];
