@@ -10,20 +10,21 @@ export default withRouter(
       </Link>
       <style jsx>{`
         a {
-          display: inline-block;
-          color: #303030;
-          font: calc(5px + 1vw) menlo;
-          font-weight: bold;
-          text-align: center;
-          padding: 2% 4% 2% 4%;
-          text-decoration: none;
-          position: relative;
-          top: 50%;
-          transform: translate(0%, -50%);
           background: ${href === router.pathname ? 'white' : 'transparent'};
+          color: #303030;
+          font-size: 0.8rem;
+          font-weight: bold;
+          padding: 0.5em 1em;
+          text-align: center;
+          text-decoration: none;
         }
         a:hover {
           color: red;
+        }
+        @media screen and (min-width: 600px) {
+          a {
+            padding: 1em 2em;
+          }
         }
       `}</style>
     </React.Fragment>

@@ -1,24 +1,24 @@
 import React from 'react'
 
 export default ({ children }) =>
-  <div className='container'>
+  <div>
     <div className='content'>
       {children}
     </div>
     <style jsx>{`
-      .container {
-        position: absolute;
-        width: 50%;
-        height: 20%;
-        top: 30%;
-        left: 30%;
-        margin: -100px 0px 0px -100px;
+      div {
+        margin: 0 auto;
+        max-width: 50em;
       }
       .content {
-        position: relative;
-        z-index: 100;
-        padding: 20px;
         background: rgba(34,34,34,0.75);
+        padding: 1em;
+      }
+      @media screen and (min-width: 600px) {
+        .content {
+          padding: 2em;
+          margin: 4em;
+        }
       }
     `}</style>
   </div>
