@@ -30,7 +30,7 @@ export default class Contact extends React.Component {
       }
     })
   }
-  onChange (captchaResponse) {
+  onCaptchaCompleted (captchaResponse) {
     this.setState({ captchaCompleted: true, captchaResponse })
     console.log('Captcha value:', captchaResponse)
   }
@@ -38,40 +38,33 @@ export default class Contact extends React.Component {
     return (
       <FadingComponent>
         <div className='box3-container'>
-          <div className='box3-bg' />
           <div className='box3'>
             <Form>
-              {({ validateForm, getPayload }) => {
-                return (
-                  <form className='board-form' onSubmit={e => {
-                    e.preventDefault()
-                    validateForm() && this.submitForm(getPayload())
-                  }}>
-                    <h2>Contact</h2>
-                    <div className='f fw grid-row--s'>
-                      <div className='mb1 pb05'>
-                        <Input name='name' label='Name' required />
-                      </div>
-                      <div className='mb1 pb05'>
-                        <Input name='email' label='Email' required />
-                      </div>
-                    </div>
-                    <ReCAPTCHA
-                      sitekey={RECAPTCHA_PUBLIC_KEY}
-                      onChange={this.onChange}
-                    />
-                    <ProgressButton
-                      className='button green'
-                      formNoValidate
-                      inProgress={this.state.submitting}
-                      inProgressText='Submitting'
-                      isDone={this.state.submitted}
-                      isDoneText='Submitted'>
+              {({ validateForm, getPayload }) => (
+                <form className='board-form' onSubmit={e => {
+                  e.preventDefault()
+                  validateForm() && this.submitForm(getPayload())
+                }}>
+                  <h2>Contact</h2>
+                  <div>
+                    <Input name='name' label='Name' required />
+                    <Input name='email' label='Email' required />
+                  </div>
+                  <ReCAPTCHA
+                    sitekey={RECAPTCHA_PUBLIC_KEY}
+                    onChange={this.onCaptchaCompleted}
+                  />
+                  <ProgressButton
+                    className='button green'
+                    formNoValidate
+                    inProgress={this.state.submitting}
+                    inProgressText='Submitting'
+                    isDone={this.state.submitted}
+                    isDoneText='Submitted'>
                       Submit Form
-                    </ProgressButton>
-                  </form>
-                )
-              }}
+                  </ProgressButton>
+                </form>
+              )}
             </Form>
           </div>
         </div>
