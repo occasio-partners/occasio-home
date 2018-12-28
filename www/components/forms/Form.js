@@ -1,16 +1,8 @@
 import React from 'react'
 import { createForm } from 'micro-form'
 
-class Form extends React.Component {
-  constructor (props) {
-    super(props)
-    this.Component = createForm(props.children)
-  }
+export default ({ children, ...props }) => {
+  const Component = createForm(children)
 
-  render () {
-    const { Component, props } = this
-    return <Component {...props} />
-  }
+  return <Component {...props} />
 }
-
-export default Form
