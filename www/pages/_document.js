@@ -16,6 +16,7 @@ export default class MyDocument extends Document {
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <meta name='description' content='Occasio Partners LLC' />
+          <meta name='theme-color' content='#317EFB' />
           <link rel='manifest' href='/manifest.json' />
           <link rel='preconnect' href='https://www.google-analytics.com' />
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_TOKEN}`} />
