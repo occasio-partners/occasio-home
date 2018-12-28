@@ -2,6 +2,7 @@
   "name": "occasio-partners",
   "version": "1.0.0",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=browser next build",
     "build": "next build",
