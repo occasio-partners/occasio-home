@@ -17,7 +17,7 @@
   "build": {
     "env": {
       "ANALYTICS_TOKEN": "UA-129673840-1",
-      "RECAPTCHA_PUBLIC_KEY": "6Lcjbn0UAAAAADWs75986YTp7NKlJRCjCNQpY8Ws"
+      "RECAPTCHA_PUBLIC_KEY": "6LeTnoUUAAAAAGdAkMPUAtTe4byqM99mUWPcHcNW"
     }
   },
   "env": {
