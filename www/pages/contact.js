@@ -15,7 +15,8 @@ export default class Contact extends React.Component {
       captchaCompleted: false,
       captchaResponse: null,
       name: '',
-      email: ''
+      email: '',
+      message: ''
     }
     this.captcha = null
   }
@@ -36,7 +37,10 @@ export default class Contact extends React.Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name: this.state.name, email: this.state.email })
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        message: this.state.message })
     }).then(res => {
       if (res.status === 200) {
         this.setState({ submitted: true, submitButton: 'SUBMITTED' })
@@ -57,6 +61,9 @@ export default class Contact extends React.Component {
           <input name='email' label='Email' placeholder='Email' type='email' required
             value={this.state.email}
             onChange={this.handleChange} />
+          <textarea rows='6' name='message' label='Message' placeholder='Type message here...' required
+            value={this.state.message}
+            onChange={this.handleChange} />
           <input type='submit' value={this.state.submitButton} disabled={this.state.submitted} />
         </form>
         <Reaptcha
@@ -74,7 +81,7 @@ export default class Contact extends React.Component {
             display: flex;
             flex-direction: column;
           }
-          input {
+          input, textarea {
             width: 301px;
             padding: 1em;
             margin: 1em;
@@ -82,10 +89,10 @@ export default class Contact extends React.Component {
             border: none;
             font-size: 1em;
           }
-          input:hover, input:focus {
+          textarea:hover, textarea:focus, input:hover, input:focus {
             background: darkgrey;
           }
-          input:focus {
+          textarea:focus, input:focus {
             outline: 1px solid grey;
             outline-offset: -4px;
           }
