@@ -79,7 +79,7 @@ module.exports = (req, res) => {
       .catch(err => {
         console.log('Failed to verify humanity:', err)
         res.statusCode = 500
-        res.end('Internal Server Error:', err)
+        res.end('Internal Server Error: ', err.message)
       })
   })
 }
