@@ -1,88 +1,96 @@
-import ContentBox from 'components/ContentBox'
-import FadingComponent from 'components/FadingComponent'
+import FadingBox from 'components/FadingBox'
 import fetch from 'isomorphic-unfetch'
-import Form from 'components/forms/Form'
 import getConfig from 'next/config'
-import Input from 'components/forms/Input'
-import ProgressButton from 'components/ProgressButton'
 import React from 'react'
-import ReCAPTCHA from 'react-google-recaptcha'
+import Reaptcha from 'reaptcha'
 
 const { RECAPTCHA_PUBLIC_KEY } = getConfig().publicRuntimeConfig
 
 export default class Contact extends React.Component {
-  state = {
-    submitting: false,
-    submitted: false,
-    captchaCompleted: false,
-    captchaResponse: null
+  constructor (props) {
+    super(props)
+    this.state = {
+      submitted: false,
+      submitButton: 'SUBMIT',
+      captchaCompleted: false,
+      captchaResponse: null,
+      name: '',
+      email: ''
+    }
+    this.captcha = null
   }
 
-  onCaptchaCompleted = captchaResponse => this.setState({ captchaCompleted: true, captchaResponse })
+  handleChange = e => { this.setState({ [e.target.name]: e.target.value }) }
 
-  submitForm (data) {
-    console.log('form submitting...')
-    fetch(`/api/contact?response=${this.state.captchaResponse}`, {
+  handleSubmit = e => {
+    e.preventDefault()
+    this.captcha.execute()
+  }
+
+  onVerify = captchaResponse => {
+    console.log('captcha: ', captchaResponse)
+    this.setState({ captchaCompleted: true, captchaResponse })
+    fetch(`/api/contact?response=${captchaResponse}`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
-    }).then((res) => {
+      body: JSON.stringify({ name: this.state.name, email: this.state.email })
+    }).then(res => {
       if (res.status === 200) {
-        this.setState({ submitted: true })
+        this.setState({ submitted: true, submitButton: 'SUBMITTED' })
       }
+    }).catch(err => {
+      console.log('fetch failure: ', err)
     })
   }
 
   render () {
     return (
-      <FadingComponent>
-        <ContentBox>
-          <Form>
-            {({ validateForm, getPayload }) => (
-              <form className='board-form' onSubmit={e => {
-                e.preventDefault()
-                validateForm() && this.submitForm(getPayload())
-              }}>
-                <h2>Contact Us</h2>
-                <div>
-                  <Input className='input' name='name' label='Name' required />
-                  <Input name='email' label='Email' required />
-                </div>
-                <ReCAPTCHA
-                  className='recaptcha'
-                  sitekey={RECAPTCHA_PUBLIC_KEY}
-                  onChange={this.onCaptchaCompleted}
-                />
-                <ProgressButton
-                  formNoValidate
-                  inProgress={this.state.submitting}
-                  inProgressText='Submitting'
-                  isDone={this.state.submitted}
-                  isDoneText='Submitted'>
-                      Submit
-                </ProgressButton>
-              </form>
-            )}
-          </Form>
-        </ContentBox>
+      <FadingBox>
+        <form onSubmit={this.handleSubmit}>
+          <h2>Contact Us</h2>
+          <input name='name' label='Name' placeholder='Name' type='text' required
+            value={this.state.name}
+            onChange={this.handleChange} />
+          <input name='email' label='Email' placeholder='Email' type='email' required
+            value={this.state.email}
+            onChange={this.handleChange} />
+          <input type='submit' value={this.state.submitButton} disabled={this.state.submitted} />
+        </form>
+        <Reaptcha
+          ref={el => { this.captcha = el }}
+          sitekey={RECAPTCHA_PUBLIC_KEY}
+          onVerify={this.onVerify}
+          size='invisible' />
         <style jsx>{`
           h2 {
             font-size: 2em;
             margin: 0.5em;
           }
-          .board-form {
+          form {
             align-items: center;
             display: flex;
             flex-direction: column;
           }
-          :global(.recaptcha) {
+          input {
+            width: 301px;
+            padding: 1em;
             margin: 1em;
+            background: lightgrey;
+            border: none;
+            font-size: 1em;
+          }
+          input:hover, input:focus {
+            background: darkgrey;
+          }
+          input:focus {
+            outline: 1px solid grey;
+            outline-offset: -4px;
           }
         `}</style>
-      </FadingComponent>
+      </FadingBox>
     )
   }
 }
