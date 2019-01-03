@@ -29,7 +29,7 @@ module.exports = (req, res) => {
   if (!captchaResponse) {
     console.error('No ReCAPTCHA Response!')
     res.statusCode = 500
-    res.end('Internal Server Error')
+    res.end('Internal Server Error: No Captcha Token!')
   }
   if (method !== 'POST') {
     res.statusCode = 405
