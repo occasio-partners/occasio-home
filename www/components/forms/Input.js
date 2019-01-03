@@ -28,10 +28,25 @@ const Input = createFactory(({ name, value, valid, validateField, updateField, .
   }
 
   return (
-    <div className={`input-wrapper ${props.className || ''} ${value ? 'has-value' : 'has-error'} ${props.label ? '' : 'no-label'}`}>
-      <input {...attrs} />
-      {props.label && <label>{props.label}{required ? '*' : ''}</label>}
-      <span />
+    <div className={`${props.className || ''} ${value ? 'has-value' : 'has-error'} ${props.label ? '' : 'no-label'}`}>
+      <input {...attrs} placeholder={props.label} />
+      <style jsx>{`
+        input {
+          width: 301px;
+          padding: 1em;
+          margin: 1em;
+          background: lightgrey;
+          border: none;
+          font-size: 1em;
+        }
+        input:hover, input:focus {
+          background: darkgrey;
+        }
+        input:focus {
+          outline: 1px solid grey;
+          outline-offset: -4px;
+        }
+      `}</style>
     </div>
   )
 })

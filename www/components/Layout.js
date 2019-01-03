@@ -26,11 +26,13 @@ export default ({ children, title = 'Occasio Partners' }) =>
     </main>
     <footer />
     <style jsx global>{`
-      * {
+      *, *:before, *:after {
+        box-sizing: inherit;
         margin: 0;
         padding: 0;
       }
       html, body {
+        box-sizing: border-box;
         height: 100%;
         overflow-x: hidden;
       }

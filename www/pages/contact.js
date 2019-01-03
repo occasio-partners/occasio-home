@@ -17,7 +17,11 @@ export default class Contact extends React.Component {
     captchaCompleted: false,
     captchaResponse: null
   }
+
+  onCaptchaCompleted = captchaResponse => this.setState({ captchaCompleted: true, captchaResponse })
+
   submitForm (data) {
+    console.log('form submitting...')
     fetch(`/api/contact?response=${this.state.captchaResponse}`, {
       method: 'post',
       headers: {
@@ -31,10 +35,7 @@ export default class Contact extends React.Component {
       }
     })
   }
-  onCaptchaCompleted (captchaResponse) {
-    this.setState({ captchaCompleted: true, captchaResponse })
-    console.log('Captcha value:', captchaResponse)
-  }
+
   render () {
     return (
       <FadingComponent>
@@ -45,28 +46,42 @@ export default class Contact extends React.Component {
                 e.preventDefault()
                 validateForm() && this.submitForm(getPayload())
               }}>
-                <h2>Contact</h2>
+                <h2>Contact Us</h2>
                 <div>
-                  <Input name='name' label='Name' required />
+                  <Input className='input' name='name' label='Name' required />
                   <Input name='email' label='Email' required />
                 </div>
                 <ReCAPTCHA
+                  className='recaptcha'
                   sitekey={RECAPTCHA_PUBLIC_KEY}
                   onChange={this.onCaptchaCompleted}
                 />
                 <ProgressButton
-                  className='button green'
                   formNoValidate
                   inProgress={this.state.submitting}
                   inProgressText='Submitting'
                   isDone={this.state.submitted}
                   isDoneText='Submitted'>
-                      Submit Form
+                      Submit
                 </ProgressButton>
               </form>
             )}
           </Form>
         </ContentBox>
+        <style jsx>{`
+          h2 {
+            font-size: 2em;
+            margin: 0.5em;
+          }
+          .board-form {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+          }
+          :global(.recaptcha) {
+            margin: 1em;
+          }
+        `}</style>
       </FadingComponent>
     )
   }
