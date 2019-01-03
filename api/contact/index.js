@@ -23,7 +23,7 @@ const sendEmail = ({ email, name, text }) => {
 module.exports = (req, res) => {
   const { method, headers } = req
   const { pathname, query } = url.parse(req.url)
-  const captchaResponse = querystring.parse(query).response.toLowerCase() || false
+  const captchaResponse = querystring.parse(query).response || false
   let body = []
 
   if (!captchaResponse) {
