@@ -16,7 +16,7 @@ export default ({ children, title = 'Occasio Partners' }) =>
       </nav>
       <nav className='navLinks'>
         <NavLink href='/' name='OUR FIRM' />
-        <NavLink href='/about' name='INVESTOR RELATIONS' />
+        <NavLink href='/investor' name='INVESTOR RELATIONS' />
         <NavLink href='/contact' name='CONTACT US' />
       </nav>
     </header>
@@ -69,6 +69,9 @@ export default ({ children, title = 'Occasio Partners' }) =>
       main {
         flex: 1;
         padding: 1em;
+      }
+      a {
+        color: inherit;
       }
       @media screen and (min-width: 600px) {
         .navLinks {
