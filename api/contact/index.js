@@ -11,7 +11,7 @@ const transporter = require('nodemailer').createTransport(
 const sendEmail = ({ email, name, text }) => {
   return new Promise((resolve, reject) => {
     transporter.sendMail({
-      from: `${name} <${email}>`,
+      from: 'postmaster@occasio-partners.com',
       to: 'marco.ellwanger@gmail.com',
       subject: `New message from ${name} <${email}>`,
       text,
