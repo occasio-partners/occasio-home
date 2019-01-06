@@ -17,7 +17,7 @@ const sendEmail = ({ email, name, text }) => {
       from: 'postmaster@occasio-partners.com',
       to: 'marco.ellwanger@gmail.com',
       subject: `New message from ${name} <${email}>`,
-      text,
+      html: `<p>${text}</p>`,
       replyTo: `${name} <${email}>`
     }, (error, info) => error ? reject(error) : resolve(info))
   })
