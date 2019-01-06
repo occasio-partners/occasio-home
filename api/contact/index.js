@@ -30,19 +30,22 @@ module.exports = (req, res) => {
   let body = []
 
   if (!captchaResponse) {
-    console.error('No ReCAPTCHA Response!')
+    console.error('No Captcha Token!')
     res.statusCode = 500
     res.end('Internal Server Error: No Captcha Token!')
   }
   if (method !== 'POST') {
+    console.error('Method Not Allowed: POST Only')
     res.statusCode = 405
     res.end('Method Not Allowed: POST Only')
   }
   if (pathname !== '/api/contact') {
+    console.error('Bad Request: Malformed URL')
     res.statusCode = 400
     res.end('Bad Request: Malformed URL')
   }
   if (headers['content-type'] !== 'application/json') {
+    console.error('Bad Request: content-type must be "application/json"')
     res.statusCode = 400
     res.end('Bad Request: content-type must be "application/json"')
   }
@@ -72,17 +75,18 @@ module.exports = (req, res) => {
               res.end('Success, email sent!')
             })
             .catch(err => {
-              console.log(err)
-              res.end('Internal Server Error: ', err)
+              console.error(err)
+              res.statusCode = 500
+              res.end('Internal Server Error: ' + err.message)
             })
         } else {
           throw new Error('failed to verify humanity')
         }
       })
       .catch(err => {
-        console.log(err)
+        console.error(err)
         res.statusCode = 500
-        res.end('Internal Server Error: ', err)
+        res.end('Internal Server Error: ' + err.message)
       })
   })
 }
