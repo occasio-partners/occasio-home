@@ -80,9 +80,9 @@ module.exports = (req, res) => {
         }
       })
       .catch(err => {
-        console.log('Failed to verify humanity:', err)
+        console.log(err)
         res.statusCode = 500
-        res.end('Internal Server Error: ', err.message)
+        res.end('Internal Server Error: ', err)
       })
   })
 }
