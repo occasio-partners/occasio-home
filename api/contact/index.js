@@ -11,7 +11,7 @@ const transporter = require('nodemailer').createTransport(
   })
 )
 
-const sendEmail = ({ email, name, text }) => {
+const sendEmail = ({ name, email, text }) => {
   return new Promise((resolve, reject) => {
     transporter.sendMail({
       from: 'postmaster@occasio-partners.com',
@@ -68,7 +68,7 @@ module.exports = (req, res) => {
       })
       .then(({ verified }) => {
         if (verified) {
-          sendEmail(name, email, text)
+          sendEmail({ name, email, text })
             .then(() => {
               console.log('Success, email sent!')
               res.statusCode = 200
