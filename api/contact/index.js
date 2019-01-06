@@ -72,8 +72,8 @@ module.exports = (req, res) => {
               res.end('Success, email sent!')
             })
             .catch(err => {
-              console.log('Failed to send email:', err)
-              throw new Error('failed to send email')
+              console.log(err)
+              res.end('Internal Server Error: ', err)
             })
         } else {
           throw new Error('failed to verify humanity')
