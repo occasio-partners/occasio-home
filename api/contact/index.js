@@ -56,7 +56,7 @@ module.exports = (req, res) => {
   }).on('data', chunk => {
     body.push(chunk)
   }).on('end', () => {
-    const { email, name } = JSON.parse(Buffer.concat(body).toString())
+    const { name, email, text } = JSON.parse(Buffer.concat(body).toString())
 
     fetch(BASE + `/api/captcha?response=${captchaResponse}`)
       .then(r => {
@@ -65,7 +65,7 @@ module.exports = (req, res) => {
       })
       .then(({ verified }) => {
         if (verified) {
-          sendEmail(email, name, 'TEST')
+          sendEmail(name, email, text)
             .then(() => {
               console.log('Success, email sent!')
               res.statusCode = 200

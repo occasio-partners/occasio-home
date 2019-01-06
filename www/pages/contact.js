@@ -40,7 +40,7 @@ export default class Contact extends React.Component {
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
-        message: this.state.message })
+        text: this.state.message })
     }).then(res => {
       if (res.status === 200) {
         this.setState({ submitted: true, submitButton: 'SUBMITTED' })
