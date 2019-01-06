@@ -1,3 +1,6 @@
+/* CHANGE WHEN DEPLOYING LIVE */
+const BASE = 'https://occasio-partners.now.sh'
+
 const url = require('url')
 const querystring = require('querystring')
 const fetch = require('isomorphic-unfetch')
@@ -55,7 +58,7 @@ module.exports = (req, res) => {
   }).on('end', () => {
     const { email, name } = JSON.parse(Buffer.concat(body).toString())
 
-    fetch(`/api/captcha?response=${captchaResponse}`)
+    fetch(BASE + `/api/captcha?response=${captchaResponse}`)
       .then(r => {
         if (r.ok) return r.json()
         throw new Error('failed to verify humanity')
