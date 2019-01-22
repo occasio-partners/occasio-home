@@ -17,6 +17,7 @@ export default ({ children, title = 'Occasio Partners' }) =>
       <nav className='navLinks'>
         <NavLink href='/' name='OUR FIRM' />
         <NavLink href='/investor' name='INVESTOR RELATIONS' />
+        <NavLink href='/news' name='NEWS' />
         <NavLink href='/contact' name='CONTACT US' />
       </nav>
     </header>
