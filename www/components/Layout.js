@@ -70,7 +70,7 @@ export default ({ children, title = 'Occasio Partners' }) =>
         padding: 0;
       }
       header > nav > img {
-        width: 50%;
+        width: 70%;
       }
       main {
         flex: 1;
