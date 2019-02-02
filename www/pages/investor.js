@@ -7,4 +7,9 @@ export default () =>
     <p>
         Download our <a href={prospectusPDF}>Prospectus</a>.
     </p>
+    <style jsx>{`
+      p {
+        text-align: center;
+      }
+    `}</style>
   </FadingBox>
