@@ -11,6 +11,7 @@ export default ({ children }) =>
         div {
           margin: 0 auto;
           max-width: 50em;
+          border-radius: 0.15em;
         }
         .content {
           background: rgba(34,34,34,0.75);
