@@ -13,19 +13,34 @@
   },
   "lint-staged": {
     "linters": {
-      "**/*.js": [ "standard" ],
-      "api/**/*.js": [ "standard", "yarn test-api --bail --findRelatedTests" ],
-      "www/**/*.js": [ "standard", "yarn test-www --bail --findRelatedTests" ]
+      "**/*.js": [
+        "standard"
+      ],
+      "api/**/*.js": [
+        "standard",
+        "yarn test-api --bail --findRelatedTests"
+      ],
+      "www/**/*.js": [
+        "standard",
+        "yarn test-www --bail --findRelatedTests"
+      ]
     },
-    "ignore": ["**/node_modules/**"]
+    "ignore": [
+      "**/node_modules/**"
+    ]
   },
   "standard": {
     "parser": "babel-eslint",
-    "globals": [ "React" ],
-    "ignore": [ "**/node_modules/**" ]
+    "globals": [
+      "React"
+    ],
+    "ignore": [
+      "**/node_modules/**"
+    ]
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "babel-plugin-preval": "^3.0.1",
     "eslint": "^5.9.0",
     "husky": "^1.2.0",
     "lint-staged": "^8.0.5",

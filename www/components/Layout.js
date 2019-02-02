@@ -25,7 +25,7 @@ export default ({ children, title = 'Occasio Partners' }) =>
       {children}
     </main>
     <footer>
-      &#169; 2019 Occasio Partners, LLC
+      &#169; 2019 Occasio Partners, LLC &nbsp;&nbsp; | &nbsp;&nbsp;GDPR&nbsp;&nbsp; | &nbsp;&nbsp;Contact: <a href='mailto:info@occasio-partners.com'>info@occasio-partners.com</a>
     </footer>
     <style jsx global>{`
       *, *:before, *:after {
