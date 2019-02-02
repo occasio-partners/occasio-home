@@ -74,7 +74,7 @@ export default ({ children, title = 'Occasio Partners' }) =>
       }
       main {
         flex: 1;
-        padding: 1em;
+        padding: 0.6em;
       }
       a {
         color: inherit;

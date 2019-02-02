@@ -14,8 +14,8 @@ export default ({ children }) =>
           border-radius: 0.15em;
         }
         .content {
-          background: rgba(34,34,34,0.75);
-          padding: 1em;
+          background: rgba(38, 34, 98, 0.75);
+          padding: 0.6em;
         }
         @media screen and (min-width: 600px) {
           .content {
