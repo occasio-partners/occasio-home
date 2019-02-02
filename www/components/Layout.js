@@ -41,6 +41,8 @@ export default ({ children, title = 'Occasio Partners' }) =>
       body {
         font-family: 'Lato', sans-serif;
         font-size: 16px;
+        letter-spacing: .03em;
+        line-height: 1.2;
         color: #fff;
         background: url(${bgImg}) no-repeat center center fixed;
         background-size: cover;
