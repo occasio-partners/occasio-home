@@ -10,11 +10,17 @@
     { "src": "www/package.json", "use": "@now/static-build" }
   ],
   "routes": [
-    { "src": "^/static/(.*)", "dest": "/static/$1" },
-    { "src": "^/newsletters/(.*)", "dest": "/newsletters/$1" },
+    { "src": "^/static/(.*)",
+      "headers": { "cache-control": "max-age=31536000, s-maxage=31536000"},
+       "dest": "/static/$1" },
+    { "src": "^/newsletters/(.*)",
+      "headers": { "cache-control": "max-age=31536000, s-maxage=31536000"},
+      "dest": "/newsletters/$1" },
     { "src": "^/api/contact$", "dest": "/api/contact" },
     { "src": "^/api/captcha$", "dest": "/api/captcha" },
-    { "src": "^/(.*)", "headers": { "cache-control": "max-age=31536000, s-maxage=31536000" }, "dest": "/www/$1" }
+    { "src": "^/(.*)",
+      "headers": { "cache-control": "max-age=31536000, s-maxage=31536000" },
+      "dest": "/www/$1" }
   ],
   "build": {
     "env": {
