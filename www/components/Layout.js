@@ -87,9 +87,12 @@ export default ({ children, title = 'Occasio Partners' }) =>
         margin: 0.4em;
       }
       footer {
+        background-color: rgba(38, 34, 98, 0.50);
+        color: aliceblue;
+        font-weight: bold;
         font-size: 0.8em;
         text-align: center;
-        margin: 0.5em;
+        padding: 0.5em;
       }
       @media screen and (min-width: 600px) {
         .navLinks {
