@@ -10,7 +10,7 @@ export default withRouter(
       </Link>
       <style jsx>{`
         a {
-          background: ${href === router.pathname ? 'white' : 'transparent'};
+          background: ${href === router.pathname ? 'aliceblue' : 'transparent'};
           color: #303030;
           font-size: 0.8rem;
           font-weight: bold;
@@ -20,7 +20,7 @@ export default withRouter(
           border-radius: 0.5em;
         }
         a:hover {
-          color: red;
+          color: #262262;
         }
         @media screen and (min-width: 600px) {
           a {
