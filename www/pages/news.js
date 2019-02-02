@@ -28,13 +28,6 @@ export default () => {
       ul {
         list-style: none;
       }
-      h1 {
-        text-align: center;
-        margin-bottom: 0.8em;
-      }
-      p {
-        margin: 0.4em;
-      }
     `}</style>
   </FadingBox>
 }
