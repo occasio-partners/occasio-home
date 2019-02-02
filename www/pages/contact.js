@@ -92,6 +92,9 @@ export default class Contact extends React.Component {
             border-radius: 0.15em;
             font-size: 1em;
           }
+          input:-webkit-autofill {
+            -webkit-box-shadow: inset 0 0 0px 9999px white;
+          }
           input:last-child {
             margin-bottom: 0;
           }
