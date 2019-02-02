@@ -17,6 +17,7 @@ export default withRouter(
           padding: 0.5em 1em;
           text-align: center;
           text-decoration: none;
+          border-radius: 0.5em;
         }
         a:hover {
           color: red;
