@@ -27,6 +27,10 @@ export default () => {
     <style jsx>{`
       ul {
         list-style: none;
+        text-align: center;
+      }
+      li {
+        margin: 1em 0;
       }
     `}</style>
   </FadingBox>
