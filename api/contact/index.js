@@ -15,7 +15,7 @@ const sendEmail = ({ name, email, text }) => {
   return new Promise((resolve, reject) => {
     transporter.sendMail({
       from: 'postmaster@occasio-partners.com',
-      to: 'marco.ellwanger@gmail.com',
+      to: 'marco.ellwanger@gmail.com,info@occasio-partners.com',
       subject: `New message from ${name} <${email}>`,
       html: `<p>${text}</p>`,
       replyTo: `${name} <${email}>`
