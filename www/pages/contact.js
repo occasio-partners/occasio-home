@@ -75,6 +75,7 @@ export default class Contact extends React.Component {
           h2 {
             font-size: 2em;
             margin: 0.5em;
+            display: none;
           }
           form {
             align-items: center;
@@ -82,18 +83,23 @@ export default class Contact extends React.Component {
             flex-direction: column;
           }
           input, textarea {
-            width: 301px;
+            width: 100%;
             padding: 1em;
-            margin: 1em;
-            background: lightgrey;
+            margin: 0;
+            margin-bottom: 0.6em;
+            background: aliceblue;
             border: none;
+            border-radius: 0.15em;
             font-size: 1em;
           }
+          input:last-child {
+            margin-bottom: 0;
+          }
           textarea:hover, textarea:focus, input:hover, input:focus {
-            background: darkgrey;
+            background: floralwhite;
           }
           textarea:focus, input:focus {
-            outline: 1px solid grey;
+            outline: 1px solid rgba(38, 34, 98, 0.75);
             outline-offset: -4px;
           }
         `}</style>
