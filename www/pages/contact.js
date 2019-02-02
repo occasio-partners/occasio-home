@@ -57,14 +57,19 @@ export default class Contact extends React.Component {
           <h2>Contact Us</h2>
           <input name='name' label='Name' placeholder='Name' type='text' required
             value={this.state.name}
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            disabled={this.state.submitted} />
           <input name='email' label='Email' placeholder='Email' type='email' required
             value={this.state.email}
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            disabled={this.state.submitted} />
           <textarea rows='6' name='message' label='Message' placeholder='Type message here...' required
             value={this.state.message}
-            onChange={this.handleChange} />
-          <input type='submit' value={this.state.submitButton} disabled={this.state.submitted} />
+            onChange={this.handleChange}
+            disabled={this.state.submitted} />
+          <input className='submit-button' type='submit'
+            value={this.state.submitButton}
+            disabled={this.state.submitted} />
         </form>
         <Reaptcha
           ref={el => { this.captcha = el }}
@@ -72,6 +77,10 @@ export default class Contact extends React.Component {
           onVerify={this.onVerify}
           size='invisible' />
         <style jsx>{`
+          .submit-button {
+            background: ${this.state.submitted ? 'lightseagreen' : 'aliceblue'};
+            font-weight: ${this.state.submitted ? 'bold' : 'normal'};
+          }
           h2 {
             font-size: 2em;
             margin: 0.5em;
