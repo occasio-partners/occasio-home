@@ -19,8 +19,8 @@ export default ({ children }) =>
         }
         @media screen and (min-width: 600px) {
           .content {
-            padding: 2em;
-            margin: 4em;
+            padding: 1em;
+            margin: 5vh;
           }
         }
       `}</style>
