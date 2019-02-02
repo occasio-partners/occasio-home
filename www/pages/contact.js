@@ -105,6 +105,15 @@ export default class Contact extends React.Component {
             outline: 1px solid rgba(38, 34, 98, 0.75);
             outline-offset: -4px;
           }
+          @media screen and (min-width: 600px) {
+            input, textarea {
+              margin-bottom: 1em;
+              max-width: 30em;
+            }
+            form {
+              margin: 2vmax 0;
+            }
+          }
         `}</style>
       </FadingBox>
     )
