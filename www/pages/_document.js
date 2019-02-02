@@ -23,6 +23,7 @@ export default class MyDocument extends Document {
           <meta name='msapplication-TileColor' content='#317EFB' />
           <meta name='theme-color' content='#317EFB' />
           <link rel='manifest' href='/manifest.json' />
+          <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' />
           <link rel='preconnect' href='https://www.google-analytics.com' />
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_TOKEN}`} />
           <script dangerouslySetInnerHTML={{ __html: `

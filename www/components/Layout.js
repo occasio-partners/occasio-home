@@ -37,7 +37,8 @@ export default ({ children, title = 'Occasio Partners' }) =>
         overflow-x: hidden;
       }
       body {
-        font: 16px menlo;
+        font-family: 'Lato', sans-serif;
+        font-size: 16px;
         color: #fff;
         background: url(${bgImg}) no-repeat center center fixed;
         background-size: cover;
