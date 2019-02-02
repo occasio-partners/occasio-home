@@ -77,9 +77,13 @@ export default class Contact extends React.Component {
           onVerify={this.onVerify}
           size='invisible' />
         <style jsx>{`
-          .submit-button {
-            background: ${this.state.submitted ? 'lightseagreen' : 'aliceblue'};
-            font-weight: ${this.state.submitted ? 'bold' : 'normal'};
+          .submit-button:disabled, .submit-button:disabled:hover {
+            background: lightseagreen;
+            font-weight: bold;
+            color: black;
+          }
+          input:disabled, textarea:disabled, input:disabled:hover, textarea:disabled:hover {
+            background: lightgrey;
           }
           h2 {
             font-size: 2em;
