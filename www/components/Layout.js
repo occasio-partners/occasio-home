@@ -24,7 +24,9 @@ export default ({ children, title = 'Occasio Partners' }) =>
     <main>
       {children}
     </main>
-    <footer />
+    <footer>
+      &#169; 2019 Occasio Partners, LLC
+    </footer>
     <style jsx global>{`
       *, *:before, *:after {
         box-sizing: inherit;
@@ -74,6 +76,18 @@ export default ({ children, title = 'Occasio Partners' }) =>
       }
       a {
         color: inherit;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 0.8em;
+      }
+      p {
+        margin: 0.4em;
+      }
+      footer {
+        font-size: 0.8em;
+        text-align: center;
+        margin: 0.5em;
       }
       @media screen and (min-width: 600px) {
         .navLinks {
