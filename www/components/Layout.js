@@ -25,7 +25,14 @@ export default ({ children, title = 'Occasio Partners' }) =>
       {children}
     </main>
     <footer>
-      &#169; 2019 Occasio Partners, LLC &nbsp;&nbsp; | &nbsp;&nbsp;GDPR&nbsp;&nbsp; | &nbsp;&nbsp;Contact: <a href='mailto:info@occasio-partners.com'>info@occasio-partners.com</a>
+      &#169; 2019 Occasio Partners, LLC
+      <span className='footer-gdpr'>
+        &nbsp;&nbsp; | &nbsp;&nbsp;GDPR
+      </span>
+      <span className='footer-contact'>
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        <a href='mailto:info@occasio-partners.com'>info@occasio-partners.com</a>
+      </span>
     </footer>
     <style jsx global>{`
       *, *:before, *:after {
@@ -94,6 +101,12 @@ export default ({ children, title = 'Occasio Partners' }) =>
         text-align: center;
         padding: 0.5em;
       }
+      .footer-gdpr {
+        display: none;
+      }
+      .footer-contact {
+        display: none;
+      }
       @media screen and (min-width: 600px) {
         main {
           padding: 0;
@@ -104,6 +117,14 @@ export default ({ children, title = 'Occasio Partners' }) =>
         }
         footer {
           padding: 0.8em;
+        }
+        .footer-gdpr {
+          display: inline;
+        }
+      }
+      @media screen and (min-width: 900px) {
+        .footer-contact {
+          display: inline;
         }
       }
       @media screen and (min-width: 1200px) {
