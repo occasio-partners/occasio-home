@@ -7,4 +7,13 @@ export default () =>
     <p>
         Download our <a href={prospectusPDF}>Prospectus</a>.
     </p>
+    <style jsx>{`
+      h1 {
+        text-align: center;
+        margin-bottom: 0.8em;
+      }
+      p {
+        margin: 0.4em;
+      }
+    `}</style>
   </FadingBox>
