@@ -85,6 +85,9 @@ export default class Contact extends React.Component {
           input:disabled, textarea:disabled, input:disabled:hover, textarea:disabled:hover {
             background: lightgrey;
           }
+          input:disabled:-webkit-autofill {
+            -webkit-box-shadow: inset 0 0 0px 9999px lightgrey;
+          }
           h2 {
             font-size: 2em;
             margin: 0.5em;
