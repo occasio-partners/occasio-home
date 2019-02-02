@@ -35,7 +35,7 @@ module.exports = withPlugins(plugins,
         lib: path.resolve(__dirname, './lib')
       }
       config.module.rules.push({
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(jpe?g|png|gif|svg|pdf)$/,
         use: [{
           loader: 'file-loader',
           options: {
