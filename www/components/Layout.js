@@ -74,7 +74,7 @@ export default ({ children, title = 'Occasio Partners' }) =>
       }
       main {
         flex: 1;
-        padding: 0.6em;
+        padding: 0.6em 5vw;
       }
       a {
         color: inherit;
@@ -95,8 +95,26 @@ export default ({ children, title = 'Occasio Partners' }) =>
         padding: 0.5em;
       }
       @media screen and (min-width: 600px) {
+        main {
+          padding: 0;
+        }
         .navLinks {
           flex-direction: row;
+          padding: 1em;
+        }
+        footer {
+          padding: 0.8em;
+        }
+      }
+      @media screen and (min-width: 1200px) {
+        body {
+          font-size: 20px;
+        }
+        header > nav > img {
+          width: 55em;
+          max-width: 70vw;
+        }
+        footer {
           padding: 1em;
         }
       }
