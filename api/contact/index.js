@@ -1,5 +1,5 @@
-/* CHANGE WHEN DEPLOYING LIVE */
-const BASE = 'https://occasio-partners.now.sh'
+/* CHANGE IN NOW.JSON WHEN DEPLOYING LIVE TO PRODUCTION */
+const BASE = process.env.BASE_URL
 
 const url = require('url')
 const querystring = require('querystring')
