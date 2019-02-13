@@ -15,7 +15,7 @@ export default ({ children, title = 'Occasio Partners' }) =>
         <img src={logoImg} alt='Occasio Partners Logo' />
       </nav>
       <nav className='navLinks'>
-        <NavLink href='/' name='OUR FIRM' />
+        <NavLink href='/about' name='OUR FIRM' />
         <NavLink href='/investor' name='INVESTOR RELATIONS' />
         <NavLink href='/news' name='NEWS' />
         <NavLink href='/contact' name='CONTACT US' />
